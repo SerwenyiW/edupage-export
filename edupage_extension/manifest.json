@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Edupage exporter",
+    "version": "1.0.0",
+    "description": "Edupage exporter",
+      "permissions": [
+        "activeTab",
+        "scripting"
+      ],
+      "content_scripts": [
+        {
+          "matches": ["https://*.edupage.org/timetable/"],
+          "js": ["main.js"]
+        }
+    ]
+  }
