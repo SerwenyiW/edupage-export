@@ -8,11 +8,11 @@ function getTimetable() {
     let valueCounter = 3;
 
     timetableDR.forEach((day, index) => {
-        if (index < 2) {
+        if(index < 2) {
             day.setAttribute('value', index + 1);
-        } else if (day.textContent.trim() !== "") {
+        } else if(day.textContent.trim() !== "") {
             day.setAttribute('value', valueCounter);
-            if (valueCounter === 5) {
+            if(valueCounter === 5) {
                 valueCounter = 1;
             } else {
                 valueCounter++;
@@ -36,9 +36,9 @@ function getTimetable() {
         if(row.textContent !== "") {
             oraadatszam++;
             if(row.style.height === "104px") {
-                if (oraadatszam === 1) ora.tanterem = row.textContent;
-                if (oraadatszam === 2) ora.tanar = row.textContent;
-                if (oraadatszam === 3) ora.tantargy = tantargyak(row.textContent, ora.csoport);
+                if(oraadatszam === 1) ora.tanterem = row.textContent;
+                if(oraadatszam === 2) ora.tanar = row.textContent;
+                if(oraadatszam === 3) ora.tantargy = tantargyak(row.textContent, ora.csoport);
                 if(oraadatszam === 3) {
                     ora.rendes = rendes(row);
                     ora.day = iskolanap(row.parentElement.getAttribute("value"));
@@ -47,11 +47,11 @@ function getTimetable() {
                     ora = { day: "", csoport: "", tanar: "", tantargy: "", tanterem: "", rendes: "" };
                 }
             } else {
-                if (oraadatszam === 1) ora.csoport = row.textContent;
-                if (oraadatszam === 2) ora.tanterem = row.textContent;
-                if (oraadatszam === 3) ora.tanar = row.textContent;
-                if (oraadatszam === 4) ora.tantargy = tantargyak(row.textContent, ora.csoport);
-                if (oraadatszam === 4) {
+                if(oraadatszam === 1) ora.csoport = row.textContent;
+                if(oraadatszam === 2) ora.tanterem = row.textContent;
+                if(oraadatszam === 3) ora.tanar = row.textContent;
+                if(oraadatszam === 4) ora.tantargy = tantargyak(row.textContent, ora.csoport);
+                if(oraadatszam === 4) {
                     ora.rendes = rendes(row);
                     ora.day = iskolanap(row.parentElement.getAttribute("value"));
                     timetableData.push({ ...ora });
@@ -116,7 +116,7 @@ function tantargyak(ora, csoport) {
         "Oszt": "Osztályfőnöki",
         "V": "Vizuális-kultúra",
     };
-    if (csoport.includes("matek fel")) {
+    if(csoport.includes("matek fel")) {
         tanorak["Mf"] = "Matematika felzárkóztató";
     } else {
         tanorak["Mf"] = "Magyar felzárkóztató";
